@@ -1,0 +1,58 @@
+ {% extends 'blogs/base.html' %}
+ {% block content %}
+        <!-- Create Blog Page -->
+        <section id="create-blog" >
+            <div class="form-container">
+                <h2 style="margin-bottom: 30px; font-size: 32px;">Create New Blog</h2>
+                <form>
+                    <div class="form-group">
+                        <label>Title</label>
+                        <input type="text" placeholder="Enter blog title" required>
+                    </div>
+                    
+                    <div class="form-group-inline">
+                        <div class="form-group">
+                            <label>Author</label>
+                            <input type="text" placeholder="Enter author name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Category</label>
+                            <select required>
+                                <option value="">Select category</option>
+                                <option value="technology">Technology</option>
+                                <option value="ai">AI & Machine Learning</option>
+                                <option value="sustainability">Sustainability</option>
+                                <option value="programming">Programming</option>
+                                <option value="design">Design</option>
+                                <option value="cloud">Cloud Computing</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Date</label>
+                        <input type="date" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="featured">
+                            <label for="featured">Mark as Featured Post</label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Content</label>
+                        <textarea placeholder="Write your blog content here..." required></textarea>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary">Cancel</button>
+                        <button type="submit" class="btn">Publish Blog</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+        {% endblock %}

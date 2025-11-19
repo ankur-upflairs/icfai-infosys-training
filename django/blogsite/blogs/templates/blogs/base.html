@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Blog Site</title>
+    <title>{% block title %}Modern Blog Site{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
@@ -17,31 +17,8 @@
                 <h1>Welcome to ModernBlog</h1>
                 <p>Discover amazing stories and insights from our community</p>
             </div>
-            <div class="blogs-grid">
-                <!-- Blog Card 1 -->
-                 {% for blog in blogs %}
-                <div class="blog-card">
-                    <div class="blog-card-image">
-                        📝
-                     {% if blog.featured %}  
-                     <div class="featured-badge">⭐ Featured</div>
-                     {%endif%}
-                    </div>
-                    <div class="blog-card-content">
-                        <div class="category-badge">{{blog.category}}</div>
-                        <h3>{{blog.title}}</h3>
-                        <p>{{blog.content |slice:":100" }}</p>
-                        <div class="blog-card-meta">
-                            <span>👤 {{blog.author}}</span>
-                            <span>📅 {{blog.date}}</span>
-                        </div>
-                        <div style="margin: 20px auto;" class="category-badge"><a style="text-decoration: none;color: white;font-size: 18px;" href="/blogs/{{blog.id}}">Read more...</a> </div>
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
-        </section>
-
+            {% block content %}
+            {% endblock %}
       
         <!-- Update Blog Page -->
         <section id="update-blog" style="display: none;">

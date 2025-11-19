@@ -1,0 +1,100 @@
+ {% extends 'blogs/base.html' %}
+ {% block content %}
+        <!-- Manage Blogs Page -->
+        <section id="manage-blogs">
+            <div class="manage-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>Category</th>
+                            <th>Date</th>
+                            <th>Featured</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Getting Started with Modern Web Development</strong></td>
+                            <td>Sarah Johnson</td>
+                            <td>Technology</td>
+                            <td>Nov 15, 2024</td>
+                            <td><span class="featured-indicator"></span> Yes</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn btn-small">Edit</button>
+                                    <button class="btn btn-danger btn-small">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>The Future of Artificial Intelligence</strong></td>
+                            <td>Michael Chen</td>
+                            <td>AI & Machine Learning</td>
+                            <td>Nov 18, 2024</td>
+                            <td>No</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn btn-small">Edit</button>
+                                    <button class="btn btn-danger btn-small">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Building Sustainable Tech Solutions</strong></td>
+                            <td>Emily Rodriguez</td>
+                            <td>Sustainability</td>
+                            <td>Nov 19, 2024</td>
+                            <td><span class="featured-indicator"></span> Yes</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn btn-small">Edit</button>
+                                    <button class="btn btn-danger btn-small">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Mastering JavaScript in 2024</strong></td>
+                            <td>David Park</td>
+                            <td>Programming</td>
+                            <td>Nov 12, 2024</td>
+                            <td>No</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn btn-small">Edit</button>
+                                    <button class="btn btn-danger btn-small">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>UI/UX Design Trends for Modern Applications</strong></td>
+                            <td>Lisa Anderson</td>
+                            <td>Design</td>
+                            <td>Nov 10, 2024</td>
+                            <td>No</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn btn-small">Edit</button>
+                                    <button class="btn btn-danger btn-small">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cloud Architecture Best Practices</strong></td>
+                            <td>James Wilson</td>
+                            <td>Cloud Computing</td>
+                            <td>Nov 08, 2024</td>
+                            <td>No</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="btn btn-small">Edit</button>
+                                    <button class="btn btn-danger btn-small">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+{%endblock%}
