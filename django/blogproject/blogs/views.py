@@ -3,6 +3,10 @@ from django.http import HttpResponseRedirect,HttpResponseNotFound
 from django.urls import reverse 
 from .data import blogs
 # Create your views here.
+
+def create_blog(request):
+    return render(request,'blogs/create.html')
+
 def all_blogs(request):
     return render(request,'blogs/allblogs.html',{
         "title":'All Blogs' ,"blogs":blogs
