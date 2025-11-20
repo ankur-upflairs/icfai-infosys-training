@@ -9,3 +9,8 @@ class Blog(models.Model):
     date=models.DateField(auto_now_add=True,null=False)
     featured=models.BooleanField()
     content=models.TextField()
+
+class Users(models.Model):
+    username=models.CharField()
+    password=models.CharField()
+    

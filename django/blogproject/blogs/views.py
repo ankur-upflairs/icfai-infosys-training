@@ -6,6 +6,12 @@ from .forms import BlogForm
 from .models import Blog
 # Create your views here.
 
+def learn_sessions(request):
+    # request.session['auth'] = True  
+    if 'auth' in request.session :
+        print('authentication')
+    return render(request,'blogs/thanks.html')
+
 def create_blog(request):
     if request.method == 'POST':
         form=BlogForm(request.POST)

@@ -1,12 +1,45 @@
 from django.shortcuts import render
 from django.http import HttpResponse,HttpResponseNotFound,HttpResponseRedirect
 from .data import blogs
-from .forms import BlogForm
-from .models import Blog
+from .forms import BlogForm,UserForm
+from .models import Blog,Users
 # Create your views here.
 
 def home(request):
     return HttpResponse('this is home page')
+def signup(request):
+    if request.method=='POST':
+        form=UserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/blogs/manage')
+    else:
+        form=UserForm()
+    return render(request,'blogs/login.html',{"login":False,
+                    "form":form})
+def login(request):
+    if request.method=='POST':
+        form=UserForm(request.POST)
+        if form.is_valid():
+            username=form.cleaned_data['username']
+            password=form.cleaned_data['password']
+            try:
+                user=Users.objects.get(username=username)
+                print('find')
+                if user.password != password:
+                    return render(request,'blogs/login.html',{"login":True,
+                    "form":form,"err":2})
+                # print(user)
+                request.session['user']=user.username
+                return HttpResponseRedirect('/blogs/manage')
+            except:
+                print('error')
+                return render(request,'blogs/login.html',{"login":True,
+                    "form":form,"err":1}) 
+    else:
+        form=UserForm()
+    return render(request,'blogs/login.html',{"login":True,
+            "form":form,"err":0})
 
 def all_blogs(request):
     blogs=Blog.objects.all()
@@ -48,6 +81,8 @@ def update_blog(request,id):
         "form":form
     })
 def manage_blogs(request):
+    if 'user' not in request.session:
+        return HttpResponseRedirect('/login') 
     blogs=Blog.objects.all()
     return render(request,'blogs/manage.html',{
         "blogs":blogs 
