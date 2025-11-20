@@ -6,3 +6,4 @@ urlpatterns=[
     # path('blogs/<int:id>',find_blog_by_id,name='blogs.id'),
     # path('blogs/<slug:slug>',find_blog_by_slug,name='blogs.slug')
 ]
+

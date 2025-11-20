@@ -4,21 +4,29 @@
         <section id="create-blog" >
             <div class="form-container">
                 <h2 style="margin-bottom: 30px; font-size: 32px;">Create New Blog</h2>
-                <form>
+                <form method="post">
+                    {% csrf_token %}
                     <div class="form-group">
                         <label>Title</label>
-                        <input type="text" placeholder="Enter blog title" required>
+                        
+                            {{form.title}}
+                            {{form.title.errors}}
+                        <!-- <input type="text" placeholder="Enter blog title" required> -->
                     </div>
                     
                     <div class="form-group-inline">
                         <div class="form-group">
-                            <label>Author</label>
-                            <input type="text" placeholder="Enter author name" required>
+                            {{form.author.label}}
+                            {{form.author}}
+                            {{form.author.errors}}
+                            
                         </div>
                         
                         <div class="form-group">
                             <label>Category</label>
-                            <select required>
+                            {{form.category}}
+                            {{form.category.errors}}
+                            <!-- <select required>
                                 <option value="">Select category</option>
                                 <option value="technology">Technology</option>
                                 <option value="ai">AI & Machine Learning</option>
@@ -27,25 +35,30 @@
                                 <option value="design">Design</option>
                                 <option value="cloud">Cloud Computing</option>
                                 <option value="other">Other</option>
-                            </select>
+                            </select> -->
                         </div>
                     </div>
                     
                     <div class="form-group">
                         <label>Date</label>
-                        <input type="date" required>
+                                                   
                     </div>
                     
                     <div class="form-group">
                         <div class="checkbox-group">
-                            <input type="checkbox" id="featured">
+                            {{form.featured}}
+                            {{form.featured.errors}}
+
+                            <!-- <input type="checkbox" id="featured"> -->
                             <label for="featured">Mark as Featured Post</label>
                         </div>
                     </div>
                     
                     <div class="form-group">
                         <label>Content</label>
-                        <textarea placeholder="Write your blog content here..." required></textarea>
+                            {{form.content}}
+                            {{form.content.errors}}
+                        <!-- <textarea placeholder="Write your blog content here..." required></textarea> -->
                     </div>
                     
                     <div class="form-actions">
