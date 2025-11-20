@@ -24,7 +24,7 @@
                             <td><span class="featured-indicator"></span> Yes</td>
                             <td>
                                 <div class="action-buttons">
-                                    <button class="btn btn-small">Edit</button>
+                                    <button class="btn btn-small" onclick="window.location.href='/blogs/update/{{blog.id}}'"  >Edit</button>
                                     <form method="post" action="/blogs/delete/{{blog.id}}">
                                         {% csrf_token %}
                                         <button class="btn btn-danger btn-small">Delete</button>

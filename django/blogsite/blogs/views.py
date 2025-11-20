@@ -35,7 +35,18 @@ def create_blog(request):
     return render(request,'blogs/create-blog.html',{
         "form":form
     })
-
+def update_blog(request,id):
+    instance=Blog.objects.get(pk=id)
+    if request.method=='POST':
+        form=BlogForm(request.POST,instance=instance)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/blogs')
+    else:
+        form=BlogForm(instance=instance)
+    return render(request,'blogs/update.html',{
+        "form":form
+    })
 def manage_blogs(request):
     blogs=Blog.objects.all()
     return render(request,'blogs/manage.html',{
