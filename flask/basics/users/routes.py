@@ -13,7 +13,8 @@ def about():
 @user.route('/user/create',methods=['GET','POST'])
 def create_user():
     if request.method == 'POST':
-        return 'form data submitted'
+        name = request.form['name']
+        return f'form data submitted and your name is {name}'
     return render_template('create-user.html')
 
 
