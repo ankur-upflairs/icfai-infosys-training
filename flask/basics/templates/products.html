@@ -1,11 +1,82 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-   <h1>this is all products page</h1> 
-</body>
-</html>
+{% extends 'base.html' %}
+{% block content %}
+
+<!-- Main Content -->
+
+
+<!-- Add/Edit Product Form -->
+<div class="form-card">
+    <h2>Add New Product</h2>
+    <form>
+        <div class="form-group">
+            <label for="productName">Product Name</label>
+            <input type="text" id="productName" placeholder="Enter product name">
+        </div>
+        <div class="form-group">
+            <label for="productPrice">Price</label>
+            <input type="number" id="productPrice" placeholder="Enter price" step="0.01">
+        </div>
+        <div class="form-group">
+            <label for="productImage">Image URL</label>
+            <input type="url" id="productImage" placeholder="Enter image URL">
+        </div>
+        <button type="submit" class="btn btn-primary">Add Product</button>
+    </form>
+</div>
+
+<!-- Products Grid -->
+<div class="products-grid">
+    <!-- Sample Product 1 -->
+    <div class="product-card">
+        <div class="product-image">📱</div>
+        <div class="product-info">
+            <div class="product-name">Smartphone Pro</div>
+            <div class="product-price">$799.99</div>
+            <div class="product-actions">
+                <button class="btn btn-edit">Edit</button>
+                <button class="btn btn-delete">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sample Product 2 -->
+    <div class="product-card">
+        <div class="product-image">💻</div>
+        <div class="product-info">
+            <div class="product-name">Laptop Ultra</div>
+            <div class="product-price">$1,299.99</div>
+            <div class="product-actions">
+                <button class="btn btn-edit">Edit</button>
+                <button class="btn btn-delete">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sample Product 3 -->
+    <div class="product-card">
+        <div class="product-image">🎧</div>
+        <div class="product-info">
+            <div class="product-name">Wireless Headphones</div>
+            <div class="product-price">$199.99</div>
+            <div class="product-actions">
+                <button class="btn btn-edit">Edit</button>
+                <button class="btn btn-delete">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sample Product 4 -->
+    <div class="product-card">
+        <div class="product-image">⌚</div>
+        <div class="product-info">
+            <div class="product-name">Smart Watch</div>
+            <div class="product-price">$349.99</div>
+            <div class="product-actions">
+                <button class="btn btn-edit">Edit</button>
+                <button class="btn btn-delete">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
