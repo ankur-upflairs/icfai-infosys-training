@@ -6,6 +6,10 @@ products=Blueprint('product',__name__)
 def all_products():
     return render_template('products.html')
 
+@products.route('/create')
+def create():
+    return render_template('create.html')
+
 @products.route('/<int:id>')
 def single_product(id):
     return f"product id is {id}"
