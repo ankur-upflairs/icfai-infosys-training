@@ -1,25 +1,32 @@
-from flask import Flask,render_template 
-from flask_sqlalchemy import SQLAlchemy
-app=Flask(__name__)
+from flask import Flask
+from flask_migrate import Migrate
+from extensions import db
+from flask_cors import CORS
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///products.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  # Avoids a warning
-db=SQLAlchemy()
+def create_app():
+    app = Flask(__name__)
+    CORS(app)
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///products.db'
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-db.init_app(app)
+    db.init_app(app)
+    Migrate(app, db)
 
-from products import routes
-from users.routes import user
-app.register_blueprint(user,url_prefix='') 
+    # Import blueprints AFTER db.init_app
+    from products.routes import products
+    from users.routes import user
+    from api.routes import products_api
 
-app.register_blueprint(routes.products,url_prefix='/products')
+    app.register_blueprint(user, url_prefix='')
+    app.register_blueprint(products, url_prefix='/products')
+    app.register_blueprint(products_api, url_prefix='/api')
 
-if __name__=='__main__':
+    return app
+
+app = create_app()
+
+if __name__ == '__main__':
     with app.app_context():
         db.create_all()
-    app.run(debug=True,port=5000)
 
-
-
-
-
+    app.run(debug=True, port=5000)
